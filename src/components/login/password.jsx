@@ -14,15 +14,11 @@ class Password extends React.Component {
         //initial state
         this.state = {
             showPassword: false,
-            password: '',
         };
     }
 
     handleClickShowPassword = () => {
         this.setState({ showPassword: !this.state.showPassword });
-    };
-    handleChange = prop => event => {
-        this.setState({ [prop]: event.target.value });
     };
 
     handleMouseDownPassword = event => {
@@ -31,15 +27,17 @@ class Password extends React.Component {
 
     render() {
         const { showPassword } = this.state;
-        const { fullWidth } = this.props;
+        const { fullWidth, value, onChange, onKeyPress, error } = this.props;
         return (
             <FormControl fullWidth={fullWidth}>
                 <InputLabel htmlFor="adornment-password">Password</InputLabel>
                 <Input
+                    error={error}
                     id="login-password"
                     type={this.state.showPassword ? 'text' : 'password'}
-                    value={this.state.password}
-                    onChange={this.handleChange('password')}
+                    value={value}
+                    onChange={onChange}
+                    onKeyPress={onKeyPress}
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton
