@@ -34,27 +34,6 @@ class Login extends React.Component {
                         <TextField id='account' type='password' label='password' margin='dense' fullWidth />
                     </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <Grid container
-                        alignItems='center'
-                        justify='space-between'>
-                        <Grid item >
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={true}
-                                        value="checkedB"
-                                        color="primary"
-                                    />
-                                }
-                                label="remeber password"
-                            />
-                        </Grid>
-                        <Grid item>
-                            forget password
-                        </Grid>
-                    </Grid>
-                </Grid>
 
                 <Grid item xs={12}>
                     <Grid container
