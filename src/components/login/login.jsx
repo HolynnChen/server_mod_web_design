@@ -8,40 +8,46 @@ import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Password from './password'
 
 class Login extends React.Component {
     constructor(props) {
-        super()
-        this.props = props
+        super(props)
+        this.state = {
+            account:''
+        }
     }
-    render() {
-        return (
-            <Grid container spacing={20}>
-                <Grid item xs={12}>
-                    <LinearProgress variant="buffer" value={30} valueBuffer={33} />
-                </Grid>
-                <Grid item xs={12}>
-                    <Grid container
-                        alignItems='center'
-                        justify='center'>
-                        <TextField id='account' type='text' label='account' margin='dense' fullWidth />
-                    </Grid>
-                </Grid>
-                <Grid item xs={12}>
-                    <Grid container
-                        alignItems='center'
-                        justify='center'>
-                        <TextField id='account' type='password' label='password' margin='dense' fullWidth />
-                    </Grid>
-                </Grid>
 
+    handleChange = prop => event => {
+        this.setState({ [prop]: event.target.value });
+    };
+
+    login = () => {
+        this.pwd = document.getElementById('login-password').value;
+    }
+
+
+    render() {
+        const { classes } = this.props;
+        return (
+            <Grid container spacing={32} justify='center'>
                 <Grid item xs={12}>
-                    <Grid container
-                        alignItems='center'
-                        justify='space-around'>
-                        <Button variant="contained" color="primary" className={this.props.button}>Login</Button>
-                    </Grid>
+                    <LinearProgress color="secondary" hidden />
                 </Grid>
+                <TextField
+                    id='account'
+                    type='text'
+                    label='account'
+                    margin='dense'
+                    onChange={this.handleChange('account')}
+                    fullWidth />
+                <Password fullWidth onChange={this.handleChange('password')} value={this.state.password}/>
+                <Button
+                    variant="contained"
+                    color="default"
+                    className={classes.button}
+                    style={{ margin: 15 }}
+                    onClick={this.login}>Login</Button>
             </Grid>
         )
     }
