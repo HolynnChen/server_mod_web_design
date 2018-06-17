@@ -29,11 +29,10 @@ class Password extends React.Component {
         const { showPassword } = this.state
         const { fullWidth, value, onChange, onKeyPress, error, autoFocus } = this.props
         return (
-            <FormControl fullWidth={fullWidth}>
-                <InputLabel htmlFor="adornment-password" error={error}>Password</InputLabel>
+            <FormControl fullWidth={fullWidth}  error={error}>
+                <InputLabel htmlFor="adornment-password">Password</InputLabel>
                 <Input
                     autoFocus={autoFocus}
-                    error={error}
                     id="login-password"
                     type={this.state.showPassword ? 'text' : 'password'}
                     value={value}
