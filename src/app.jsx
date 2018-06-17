@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import Login from './components/login/login'
-import './assets/style/reset.scss'
 import Grid from '@material-ui/core/Grid';
 
 const element = (
